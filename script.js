@@ -1,4 +1,3 @@
-
 //front end
 
 const input = document.querySelector("input");
@@ -46,12 +45,12 @@ function readinfo(info) {
   const dayTemp = info.forecast.forecastday[0].day.avgtemp_c;
   const feelsLike = info.current.feelslike_c;
   const conditons = info.current.condition.text;
-    const location = info.location.name
+  const location = info.location.name;
   let icon = info.current.condition.icon;
 
   icon = "http:" + icon;
 
-    input.placeholder = location
+  input.placeholder = location;
   heat.textContent = `${dayTemp} Grad`;
   img.src = icon;
   feels.textContent = `Gefühlt wie ${feelsLike}`;
@@ -87,7 +86,7 @@ function capitalizeFirstLetter(string) {
 
 const alert = document.querySelector(".alert");
 function displayerror(mess) {
-  input.placeholder = "berlin";
+  input.placeholder = "Berlin";
   alert.textContent = mess;
   alert.classList.remove("hide");
   setTimeout(() => {
