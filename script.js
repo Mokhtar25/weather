@@ -16,7 +16,6 @@ button.addEventListener("click", () => {
   const text = input.value;
   if (text) {
     work(text);
-    input.placeholder = capitalizeFirstLetter(text);
   } else {
     displayerror("Please enter a city");
     console.log("error");
@@ -51,9 +50,12 @@ function readinfo(info) {
   const dayTemp = info.forecast.forecastday[0].day.avgtemp_c;
   const feelsLike = info.current.feelslike_c;
   const conditons = info.current.condition.text;
+    const location = info.location.name
   let icon = info.current.condition.icon;
+
   icon = "http:" + icon;
 
+    input.placeholder = location
   heat.textContent = `${dayTemp} Grad`;
   img.src = icon;
   feels.textContent = `Gefühlt wie ${feelsLike}`;
