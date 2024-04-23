@@ -6,21 +6,38 @@
     <title>Weather</title>
     <link href="css/output.css" rel="stylesheet" />
   </head>
-  <body class="h-dvh">
+  <body class="h-dvh overflow-hidden">
+      <div class="alert hide absolute bottom-[30%] w-96 text-center pt-8 rounded-xl h-24 border-2 z-10 bg-sky-200 left-[50%] right-[50%] "role="alert">Something went wrong</div>
     <nav
       class="flex h-28 items-center justify-center bg-sky-400 text-6xl text-white"
     >
       Weather
     </nav>
     <main>
-      <text-wraper class="flex items-center justify-center pt-4">
+      <div class="flex items-center justify-center gap-3 pt-4">
         <input
           class="h-12 w-96 rounded-lg bg-sky-100 p-4 outline-0"
           type="search"
           value=""
           placeholder="Berlin"
         />
-      </text-wraper>
+        <button
+          class="sear w-68 size-12 rotate-90 rounded-xl border-0 bg-sky-100 text-4xl hover:bg-sky-200 active:bg-sky-400"
+          type="submit"
+        >
+          &#9740;
+        </button>
+      </div>
+      <section>
+        <div class="main p-20 flex justify-center items-center text-4xl gap-4 flex-col">
+           <div class="wrap flex items-center gap-3">
+                <img class="icon size-24" src="#"></img>
+                <div class="heat">36</div>
+            </div>
+          <div class="conditons">noth </div>
+          <div class="feelslike">hot</div>
+        </div>
+      </section>
     </main>
 
     <script src="script.js"></script>

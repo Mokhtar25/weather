@@ -9,7 +9,7 @@
   width: 30px;
   height: 30px;
   animation: spin 1s linear infinite;
-  /* margin: auto; */
+  margin: auto;
 }
 
 @keyframes spin {
@@ -19,12 +19,4 @@
   100% {
     transform: rotate(360deg);
   }
-}
-
-.alert {
-  transform: translate(85%, 100%);
-  transition: all 400ms ease-in-out;
-}
-.hide {
-  transform: translate(200%, 100%);
 }

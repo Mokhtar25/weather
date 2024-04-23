@@ -8,28 +8,17 @@
 const input = document.querySelector("input");
 
 const button = document.querySelector("button");
-input.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") button.click();
-});
-
 button.addEventListener("click", () => {
   const text = input.value;
   if (text) {
     work(text);
-    input.placeholder = capitalizeFirstLetter(text);
   } else {
-    displayerror("Please enter a city");
     console.log("error");
   }
-  input.value = "";
 });
 
 const heat = document.querySelector(".heat");
 const img = document.querySelector("img");
-const feels = document.querySelector(".feelslike");
-const cond = document.querySelector(".conditons");
-
-const load = document.querySelector(".sear");
 
 async function getdata(city) {
   try {
@@ -51,13 +40,13 @@ function readinfo(info) {
   const dayTemp = info.forecast.forecastday[0].day.avgtemp_c;
   const feelsLike = info.current.feelslike_c;
   const conditons = info.current.condition.text;
-  let icon = info.current.condition.icon;
-  icon = "http:" + icon;
+  const icon = info.current.condition.icon;
+  const s = new Image();
+  s.src = icon.slice(2);
 
-  heat.textContent = `${dayTemp} Grad`;
-  img.src = icon;
-  feels.textContent = `Gefühlt wie ${feelsLike}`;
-  cond.textContent = conditons;
+  heat.textContent = dayTemp;
+  heat.appendChild(s);
+  img = s;
 }
 
 // const errorhandel =
@@ -68,31 +57,11 @@ function readinfo(info) {
 //     });
 
 async function work(city) {
-  load.textContent = "";
-  load.classList.add("loader");
   try {
     const berlin = await getdata(city);
     readinfo(berlin);
   } catch (er) {
-    displayerror(er.message);
     console.dir(er.message);
   }
-
-  load.classList.remove("loader");
-  load.innerHTML = "&#9740;";
 }
 work("berlin");
-
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-const alert = document.querySelector(".alert");
-function displayerror(mess) {
-  input.placeholder = "berlin";
-  alert.textContent = mess;
-  alert.classList.remove("hide");
-  setTimeout(() => {
-    alert.classList.add("hide");
-  }, 3000);
-}
