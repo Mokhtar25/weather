@@ -1,7 +1,3 @@
-//
-// //weather api
-// // 9cf9aeded8234f71976113151242304
-//
 
 //front end
 
