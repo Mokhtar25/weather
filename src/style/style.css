@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  transition: all 100ms ease-in-out;
+}
+:root {
+  scrollbar-width: none;
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.alert {
+  right: -100%; /* Initially hide the alert off the left side */
+  transform: translate(50%, 10%);
+  transition: right 0.5s ease-in-out;
+}
+
+.alert_show {
+  right: 10%;
+}
+
+html,
+body {
+  padding: 0 0;
+  margin: 0 0;
+}
+sidebar {
+  overflow-y: auto;
+  height: calc(100vh - 20px);
+}
+.notewrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  border-left: 10px solid #fca5a5;
+
+  border-bottom-color: #e7e5e4;
+
+  border-radius: 0.5rem;
+  user-select: none;
+  border-bottom-width: 2px;
+  height: 3rem;
+
+  padding-left: 5px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  font-family: "Courier New", Courier, monospace;
+}
+.notewrap:hover {
+  border-left-width: 20px;
+  background-color: #fef2f2;
+}
+.notewrap:active {
+  background-color: white;
+  color: white;
+  transition-duration: 50ms;
+}
+
+.notewrap ul {
+  display: flex;
+  gap: 1rem;
+  list-style-type: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  padding: 5px;
+}
+
+.notewrap ul li {
+  color: red;
+}
+.notewrap ul li:first-of-type {
+  color: green;
+}
+
+.project_item {
+  color: white;
+  text-align: left;
+  border: 1.3px solid whitesmoke;
+  user-select: none;
+  border-left: 7px solid whitesmoke;
+
+  border-radius: 0.4rem;
+  font-size: 1.3rem;
+  text-shadow: 0.3px 0.3px 0.3px black;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  user-select: none;
+}
+.project_item:hover {
+  border-left: 20px solid whitesmoke;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 0.65rem;
+  cursor: pointer;
+}
+.project_item:active {
+  background-color: #fecaca;
+
+  border-left: 20px solid white;
+  /* transition: all 50ms ease-out; */
+  transition-duration: 50ms;
+}
+
+input[type="checkbox"] {
+  color: green;
+  position: relative;
+  background-color: green;
+  accent-color: green;
+  scale: 150%;
+  margin-right: 1rem;
+}
+
+.done::before {
+  content: "Done";
+  display: relative;
+  padding-right: 1rem;
+}
+
+.trash {
+  margin-right: 20px;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 10px;
+  height: 12px;
+  border: 2px solid transparent;
+  box-shadow:
+    0 0 0 2px,
+    inset -2px 0 0,
+    inset 2px 0 0;
+  border-bottom-left-radius: 1px;
+  border-bottom-right-radius: 1px;
+  margin-top: 4px;
+}
+.trash::after,
+.trash::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+}
+.trash::after {
+  background: currentColor;
+  border-radius: 3px;
+  width: 16px;
+  height: 2px;
+  top: -4px;
+  left: -5px;
+}
+.trash::before {
+  width: 10px;
+  height: 4px;
+  border: 2px solid;
+  border-bottom: transparent;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  top: -7px;
+  left: -2px;
+}
+
+.trash:hover {
+  transition-duration: 100ms;
+  color: #f87171;
+  transform: scale(120%);
+}
+.trash:active {
+  background-color: white;
+  color: white;
+  transition-duration: 50ms ease-out;
+}
+
+.done_note {
+  @apply relative bg-red-600 text-white after:bg-red-100 hover:bg-red-400 after:hover:bg-red-700;
+}
+.done_note::after {
+  position: absolute;
+  width: 80%;
+  display: block;
+  content: "";
+  height: 5%;
+}
+.hide {
+  @apply hidden scale-0;
+}
+
+.empty {
+  @apply flex items-center justify-center py-28 text-6xl text-red-200/50;
+}
