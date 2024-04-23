@@ -1,6 +1,0 @@
-you need to make a retierver function to retive the data from json and convert them into a new object with functionality 
-you need to figure the numbering of the object as well
-add notes reading display
-add removing a project
-add edtating a note
-a:dd sorting based on importance:
