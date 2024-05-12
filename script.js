@@ -1,5 +1,5 @@
 //front end
-
+const icon = "&#9740";
 const input = document.querySelector("input");
 
 const button = document.querySelector("button");
@@ -13,7 +13,6 @@ button.addEventListener("click", () => {
     work(text);
   } else {
     displayerror("Please enter a city");
-    console.log("error");
   }
   input.value = "";
 });
@@ -75,7 +74,7 @@ async function work(city) {
   }
 
   load.classList.remove("loader");
-  load.innerHTML = "&#9740;";
+  load.innerHTML = icon;
 }
 work("berlin");
 
