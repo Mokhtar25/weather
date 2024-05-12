@@ -72,7 +72,6 @@ async function work(city) {
     readinfo(berlin);
   } catch (er) {
     displayerror(er.message);
-    console.dir(er.message);
   }
 
   load.classList.remove("loader");
